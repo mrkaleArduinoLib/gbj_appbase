@@ -54,8 +54,12 @@ public:
     ERROR_SUBSCRIBE, // Subsribing failed
   };
 
+  //------------------------------------------------------------------------------
   // Abstract methods
+  //------------------------------------------------------------------------------
   virtual void run() = 0;
+  virtual unsigned long getPeriod() = 0;
+  virtual void setPeriod(unsigned long period) = 0;
 
   //------------------------------------------------------------------------------
   // Public setters - they usually return result code or void.
