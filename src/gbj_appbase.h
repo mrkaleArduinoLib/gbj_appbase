@@ -22,13 +22,11 @@
 #define GBJ_APPBASE_H
 
 #if defined(__AVR__)
-  #if ARDUINO >= 100
-    #include <Arduino.h>
-  #else
-    #include <WProgram.h>
-  #endif
+  #include <Arduino.h>
   #include <inttypes.h>
-#elif defined(ESP8266) || defined(ESP32)
+#elif defined(ESP8266)
+  #include <Arduino.h>
+#elif defined(ESP32)
   #include <Arduino.h>
 #elif defined(PARTICLE)
   #include <Particle.h>
