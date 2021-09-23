@@ -3,10 +3,9 @@
   gbj_appbase
 
   DESCRIPTION:
-  Library provides common methods for project centric application libraries
-  and acts as their parent class.
-  - Library implements basic error handling.
-  - Library hase pure virual method(s).
+  Library adds virtual methods to its parent class with common core methods
+  for project centric application libraries and acts as their parent class.
+  - Library only has pure virual method(s).
 
   LICENSE:
   This program is free software; you can redistribute it and/or modify
@@ -31,52 +30,22 @@
 #elif defined(PARTICLE)
   #include <Particle.h>
 #endif
+#include "gbj_appcore.h"
 
-class gbj_appbase
+class gbj_appbase : public gbj_appcore
 {
 public:
   //------------------------------------------------------------------------------
   // Public constants
   //------------------------------------------------------------------------------
   static const String VERSION;
-  enum ResultCodes : byte
-  {
-    SUCCESS, // It should be always the first with index 0
-    ERROR_UKNOWN, // Not recognized error
-    ERROR_NOINIT, // Not initialized yet
-    ERROR_NODEVICE, // No device detected
-    ERROR_ADDR, // Wrong address
-    ERROR_DATA, // Wrong data
-    ERROR_CONNECT, // Connection failed
-    ERROR_PUBLISH, // Publishing failed
-    ERROR_SUBSCRIBE, // Subsribing failed
-  };
 
   //------------------------------------------------------------------------------
   // Abstract methods
   //------------------------------------------------------------------------------
   virtual void run() = 0;
-  virtual unsigned long getPeriod() = 0;
   virtual void setPeriod(unsigned long period) = 0;
-
-  //------------------------------------------------------------------------------
-  // Public setters - they usually return result code or void.
-  //------------------------------------------------------------------------------
-  inline ResultCodes setLastResult(ResultCodes lastResult = ResultCodes::SUCCESS)
-  {
-    return _lastResult = lastResult;
-  };
-
-  //------------------------------------------------------------------------------
-  // Public getters
-  //------------------------------------------------------------------------------
-  inline ResultCodes getLastResult() { return _lastResult; };
-  inline bool isSuccess() { return _lastResult == ResultCodes::SUCCESS; };
-  inline bool isError() { return !isSuccess(); };
-
-private:
-  ResultCodes _lastResult =
-    ResultCodes::ERROR_NOINIT; // Result of a recent operation
+  virtual unsigned long getPeriod() = 0;
 };
 
 #endif

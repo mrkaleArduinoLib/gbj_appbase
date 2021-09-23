@@ -1,12 +1,12 @@
 {
   "name": "gbj_appbase",
   "keywords": "application",
-  "description": "Library provides common methods for project centric application libraries.",
+  "description": "Library provides common methods for project centric application libraries including virtual methods.",
   "repository": {
     "type": "git",
     "url": "https://github.com/mrkaleArduinoLib/gbj_appbase.git"
   },
-  "version": "1.0.1",
+  "version": "1.1.0",
   "frameworks": "arduino",
   "platforms": ["atmelavr", "atmelsam", "espressif8266", "espressif32"]
 }
