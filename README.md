@@ -50,7 +50,7 @@ It consists only from virtual methods:
 The execution method, which should be called frequently, usually in the loop function of a sketch.
 
 #### Syntax
-	virtual void run();
+	virtual void run()
 
 #### Parameters
 None
