@@ -35,14 +35,9 @@
 class gbj_appbase : public gbj_appcore
 {
 public:
-  //------------------------------------------------------------------------------
-  // Public constants
-  //------------------------------------------------------------------------------
   static const String VERSION;
 
-  //------------------------------------------------------------------------------
   // Abstract methods
-  //------------------------------------------------------------------------------
   virtual void run() = 0;
   virtual void setPeriod(unsigned long period) = 0;
   virtual unsigned long getPeriod() = 0;

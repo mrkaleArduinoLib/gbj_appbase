@@ -1,36 +1,44 @@
 <a id="library"></a>
 
 # gbj\_appbase
-This is an application library, which is used usually as a project library for particular PlatformIO project. It provides common core methods for project centric application libraries **with internal timer **and acts as their parent class.
+This is an application library, which is used usually as a project library for particular PlatformIO project. It provides common core methods for project centric application libraries **with internal timer** and acts as their parent class with following advantages:
 
-- Library just extends its parent class with virtual methods, that should every derived class implement.
-- Library utilizes error handling from the parent class.
+* It utilizes funcionality from the parent class.
+* The library is reusable for various projects providing basic functionality.
+* Update in library is valid for all involved projects.
+
+
+## Fundamental functionality
+
+* The library specifies (inherits from) the parent application library `gbj_appcore` and extends it with virtual methods for managing internal timers, which every child class should implement.
+* A child class should created an internal timer. If it is not needed, use rathe the _gbj_appcore_ library as a parent class.
+* It provides error handling for all derived classes.
 
 
 <a id="dependency"></a>
 
 ## Dependency
-- **gbj\_appcore**: Parent library loaded from the file `gbj_appcore.h`.
+* **gbj\_appcore**: Parent library loaded from the file `gbj_appcore.h`.
 
 #### Arduino platform
-- **Arduino.h**: Main include file for the Arduino SDK.
-- **inttypes.h**: Integer type conversions. This header file includes the exact-width integer definitions and extends them with additional facilities provided by the implementation.
+* **Arduino.h**: Main include file for the Arduino SDK.
+* **inttypes.h**: Integer type conversions. This header file includes the exact-width integer definitions and extends them with additional facilities provided by the implementation.
 
 #### Espressif ESP8266 platform
-- **Arduino.h**: Main include file for the Arduino platform.
+* **Arduino.h**: Main include file for the Arduino platform.
 
 #### Espressif ESP32 platform
-- **Arduino.h**: Main include file for the Arduino platform.
+* **Arduino.h**: Main include file for the Arduino platform.
 
 #### Particle platform
-- **Particle.h**: Includes alternative (C++) data type definitions.
+* **Particle.h**: Includes alternative (C++) data type definitions.
 
 
 <a id="constants"></a>
 
 ## Constants
 
-- **gbj\_appbase::VERSION**: Name and semantic version of the library.
+* **gbj\_appbase::VERSION**: Name and semantic version of the library.
 
 Other constants, enumerations, result codes, and error codes are inherited from the parent library.
 
@@ -40,14 +48,14 @@ Other constants, enumerations, result codes, and error codes are inherited from 
 ## Interface
 It consists only from virtual methods:
 
-- [run()](#run)
-- [setPeriod()](#setPeriod)
-- [getPeriod()](#getPeriod)
+* [run()](#run)
+* [setPeriod()](#setPeriod)
+* [getPeriod()](#getPeriod)
 
 ## run()
 
 #### Description
-The execution method, which should be called frequently, usually in the loop function of a sketch.
+The execution method, which should be called frequently, usually in the loop function of a main sketch.
 
 #### Syntax
 	virtual void run()
@@ -66,15 +74,15 @@ None
 ## setPeriod()
 
 #### Description
-The method sets a new period of the internal timer.
+The method sets a new period of the internal timer in milliseconds.
 
 #### Syntax
     virtual void setPeriod(unsigned long period)
 
 #### Parameters
-- **period**: Duration of a repeating interval in milliseconds.
-  - *Valid values*: 0 ~ 2^32 - 1
-  - *Default value*: none
+* **period**: Duration of a repeating interval of the internal timers in milliseconds.
+  * *Valid values*: 0 ~ 2^32 - 1
+  * *Default value*: none
 
 #### Returns
 None
@@ -102,6 +110,6 @@ None
 Current timer period in milliseconds.
 
 #### See also
-[setPeriod()](#getPeriod)
+[setPeriod()](#setPeriod)
 
 [Back to interface](#interface)
