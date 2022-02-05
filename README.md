@@ -11,7 +11,7 @@ This is an application library, which is used usually as a project library for p
 ## Fundamental functionality
 
 * The library specifies (inherits from) the parent application library `gbj_appcore` and extends it with virtual methods for managing internal timers, which every child class should implement.
-* A child class should created an internal timer. If it is not needed, use rathe the _gbj_appcore_ library as a parent class.
+* A child class should created an internal timer. If it is not needed, use rathe the _gbj\_appcore_ library as a parent class.
 * It provides error handling for all derived classes.
 
 
@@ -38,7 +38,7 @@ This is an application library, which is used usually as a project library for p
 
 ## Constants
 
-* **gbj\_appbase::VERSION**: Name and semantic version of the library.
+* **VERSION**: Name and semantic version of the library.
 
 Other constants, enumerations, result codes, and error codes are inherited from the parent library.
 
