@@ -35,7 +35,7 @@
 class gbj_appbase : public gbj_appcore
 {
 public:
-  static const String VERSION;
+  const String VERSION = "GBJ_APPBASE 1.1.0";
 
   // Abstract methods
   virtual void run() = 0;
