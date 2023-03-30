@@ -34,15 +34,6 @@ This is an application library, which is used usually as a project library for p
 * **Particle.h**: Includes alternative (C++) data type definitions.
 
 
-<a id="constants"></a>
-
-## Constants
-
-* **VERSION**: Name and semantic version of the library.
-
-Other constants, enumerations, result codes, and error codes are inherited from the parent library.
-
-
 <a id="interface"></a>
 
 ## Interface
@@ -75,13 +66,22 @@ None
 
 #### Description
 The method sets a new period of the internal timer in milliseconds.
+The overloaded method sets a new period of the internal timer in milliseconds input either in milliseconds or in seconds.
+* The numerical argument is considered in milliseconds.
+* The textual argument is considered in seconds. It is useful with conjunction with a project data hub, which data has always string data type.
 
 #### Syntax
     virtual void setPeriod(unsigned long period)
+    virtual void setPeriod(String periodSec)
 
 #### Parameters
-* **period**: Duration of a repeating interval of the internal timers in milliseconds.
+* **period**: Duration of a repeating interval of the internal timer in milliseconds declared as integer.
   * *Valid values*: 0 ~ 2^32 - 1
+  * *Default value*: none
+
+
+* **periodSec**: Duration of a repeating interval of the internal timer in seconds declared as string.
+  * *Valid values*: String
   * *Default value*: none
 
 #### Returns

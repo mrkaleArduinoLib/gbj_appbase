@@ -35,11 +35,10 @@
 class gbj_appbase : public gbj_appcore
 {
 public:
-  const String VERSION = "GBJ_APPBASE 1.1.0";
-
   // Abstract methods
   virtual void run() = 0;
   virtual void setPeriod(unsigned long period) = 0;
+  virtual void setPeriod(String periodSec) = 0;
   virtual unsigned long getPeriod() = 0;
 };
 
